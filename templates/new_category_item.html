@@ -1,0 +1,51 @@
+{% extends "_base.html" %}
+{% block content %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Item - New</div>
+        <div class="panel-body">
+            <form class="form-horizontal" method="post"
+                  action="{{ url_for('new_category_item') }}">
+                <div class="control-group">
+                    <label class="control-label" for="name">Name</label>
+
+                    <div class="controls">
+                        <input type="text" maxlength="50" class="form-control"
+                               name="name">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label"
+                           for="description">Description</label>
+
+                    <div class="controls">
+                    <textarea class="form-control" maxlength="250" rows="3"
+                              name="description"></textarea>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"
+                           for="category_name">Category</label>
+
+                    <div class="controls">
+                        <select class="form-control"
+                                name="category_name">
+                            {% for category in categories %}
+                                <option>{{ category.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <hr/>
+                <div class="control-group">
+                    <button type="submit" class="btn btn-default" id="submit"
+                            type="submit">Submit
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+{% endblock %}

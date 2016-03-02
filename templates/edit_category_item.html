@@ -1,0 +1,54 @@
+{% extends "_base.html" %}
+{% block content %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Item - Edit</div>
+        <div class="panel-body">
+            <form class="form-horizontal" method="post"
+                  action="{{ url_for('edit_category_item',category_name=item.category.name,item_name=item.name) }}">
+                <div class="control-group">
+                    <label class="control-label" for="name">Name</label>
+
+                    <div class="controls">
+                        <input type="text" maxlength="50" class="form-control"
+                               name="name" value="{{ item.name }}">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label"
+                           for="description">Description</label>
+
+                    <div class="controls">
+                    <textarea class="form-control" maxlength="250" rows="3"
+                              name="description">{{ item.description }}</textarea>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"
+                           for="category_name">Category</label>
+
+                    <div class="controls">
+                        <select class="form-control"
+                                name="category_name"
+                                value="{{ item.category.name }}">
+                            {% for category in categories %}
+                                <option
+                                        {% if item.category.name == category.name %}
+                                            selected {% endif %}>{{ category.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <hr/>
+                <div class="control-group">
+                    <button type="submit" class="btn btn-default" id="submit"
+                            type="submit">Submit
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+{% endblock %}

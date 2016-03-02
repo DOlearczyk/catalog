@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Categories
+    </div>
+    <ul class="nav nav-sidebar">
+        {% for category in categories %}
+            <li>
+                <a href="{{ url_for('show_items',category_name=category.name) }}">{{ category.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

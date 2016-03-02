@@ -1,0 +1,16 @@
+{% extends "_base.html" %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-3">
+            {% include "_categories.html" %}
+        </div>
+        <div class="col-md-9">
+            {% if category %}
+                {% include "_category_items.html" %}
+            {% else %}
+                {% include "_latest_items.html" %}
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
