@@ -418,7 +418,7 @@ def disconnect():
 
 @app.route('/catalog.json')
 def items_json():
-    """ JSON APIs to view Restaurant Information. """
+    """ JSON APIs to view Catalog Information. """
     categories = session.query(Category).all()
     return jsonify(Category=[i.serialize for i in categories])
 
