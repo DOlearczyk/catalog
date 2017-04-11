@@ -1,4 +1,4 @@
-#Catalog
+# Catalog
 This project is part of Udacity course. You can create catalog locally by using this project.
 
 ## Requirements
